@@ -1,15 +1,15 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import { useTheme, ThemeProvider } from 'styled-components/native';
+import { ThemeProvider } from 'styled-components/native';
+import theme from './src/global/styles/theme';
 import { Home } from './src/pages/Home';
 
 export default function App() {
-  const theme = useTheme();
   return (
-    <>
+     <>
       <ThemeProvider theme={theme}>
         <Home />
       </ThemeProvider>
-    </>
+     </>
   );
 }

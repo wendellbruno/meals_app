@@ -1,9 +1,9 @@
 const theme = {
   colors: {
     background: "#FF4545",
-    fontColor: "#FF4545",
-    detailFontColor: "#FFF",
-    detailMealFontColor: '#000',
+    colorRed: "#FF4545",
+    colorWhite: "#FFF",
+    colorBlack: '#000',
     iconColor: "#FF6060",
   }
 };

@@ -1,9 +1,15 @@
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
-
+import {MaterialCommunityIcons} from '@expo/vector-icons';
 
 export const ContainerTitle = styled.View`
   padding: 15px;
+  align-items: center;
+`;
+
+export const IconTitle = styled(MaterialCommunityIcons)`
+  color: ${({ theme }) => theme.colors.colorWhite};
+  font-size: ${RFValue(80)}px;
 `;
 export const ContainerList = styled.View`
   flex: 1;
@@ -12,6 +18,6 @@ export const ContainerList = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: ${RFValue(30)}px;
+  font-size: ${RFValue(20)}px;
   color: ${({ theme }) => theme.colors.colorWhite};
 `;

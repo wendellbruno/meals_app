@@ -14,4 +14,5 @@ export const Container = styled.View`
 export const TitleCategory = styled.Text`
   color: ${({ theme }) => theme.colors.colorRed};
   font-size: ${RFValue(16)}px;
+  font-family: ${({ theme }) => theme.fonts.regular};
 `;

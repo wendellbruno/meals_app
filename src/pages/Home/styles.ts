@@ -20,4 +20,5 @@ export const ContainerList = styled.View`
 export const Title = styled.Text`
   font-size: ${RFValue(20)}px;
   color: ${({ theme }) => theme.colors.colorWhite};
+  font-family: ${({ theme }) => theme.fonts.regular};
 `;

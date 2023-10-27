@@ -5,7 +5,6 @@ import { DUMMY_CATEGORIES } from '../../mock/CategoryData';
 import {Title, ContainerTitle, ContainerList} from './styles';
 
 
-
 export const Home: React.FC = () => {
   return (
     <ContainerBG>

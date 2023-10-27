@@ -13,7 +13,10 @@ export const BottonsTab: React.FC = () => {
     screenOptions={{
       headerShown: false,
       tabBarActiveTintColor: theme.colors.iconColor,
-      tabBarInactiveTintColor: theme.colors.iconColor
+      tabBarInactiveTintColor: theme.colors.iconColor,
+      tabBarLabelStyle: {
+        fontFamily: theme.fonts.regular
+      }
     }}
 
     >
@@ -26,7 +29,8 @@ export const BottonsTab: React.FC = () => {
             return <Ionicons name="restaurant" color={color} size={size} />;
           }
           return <Ionicons name="restaurant-outline" color={color} size={size} />;
-        }
+        },
+        tabBarLabel: 'Categorias'
       }}
       />
       <Tab.Screen
@@ -39,6 +43,7 @@ export const BottonsTab: React.FC = () => {
               }
               return <AntDesign name="staro" color={color} size={size} />;
             },
+            tabBarLabel: 'Favoritos'
           }}
       />
     </Tab.Navigator>

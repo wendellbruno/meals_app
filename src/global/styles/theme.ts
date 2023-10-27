@@ -5,6 +5,9 @@ const theme = {
     colorWhite: "#FFF",
     colorBlack: '#000',
     iconColor: "#FF6060",
+  },
+  fonts:{
+    regular: 'ConcertOne_400Regular'
   }
 };
 

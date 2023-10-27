@@ -25,7 +25,7 @@ export const Home: React.FC = () => {
           )}
           renderItem={({ item }) => (
             <TouchableOpacity
-            onPress={ () => navigate('MealsPage', {categoryId: item.id})}
+            onPress={ () => navigate('MealsPage', {categoryId: item.id, categoryName: item.title})}
             >
               <Categories category={item} />
             </TouchableOpacity>

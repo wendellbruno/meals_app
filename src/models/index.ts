@@ -1,10 +1,10 @@
-export const enum Complexity {
+export enum Complexity {
   Simple,
   Medium,
   Difficult,
 }
 
-export const enum Cost {
+export enum Cost {
   Cheap,
   Fair,
   Expensive,
@@ -20,8 +20,10 @@ export interface IMeal {
   id: string;
   categories: ICategory[];
   title: string;
+  cost: Cost;
+  complexity: Complexity;
   imageUrl: string;
+  duration: number;
   ingredients: string[];
   steps: string[];
-  duration: number;
 }

@@ -3,7 +3,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 
 export const ContainerTitle = styled.View`
-  padding: 15px;
+  padding: ${RFValue(15)}px;
   align-items: center;
 `;
 

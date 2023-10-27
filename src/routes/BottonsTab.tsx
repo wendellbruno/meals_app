@@ -18,7 +18,7 @@ export const BottonsTab: React.FC = () => {
 
     >
       <Tab.Screen
-      name="Home"
+      name="HomeTab"
       component={Home}
       options={{
         tabBarIcon: ({focused, color, size}) => {

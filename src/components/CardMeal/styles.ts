@@ -21,7 +21,7 @@ export const ContainerImage = styled.View`
 export const ImageMeal = styled.Image`
   width: ${RFValue(120)}px;
   height: ${RFValue(120)}px;
-  border-radius: 50%;
+  border-radius: 50px;
   object-fit: cover;
 `;
 

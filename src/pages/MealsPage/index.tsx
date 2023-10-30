@@ -1,13 +1,18 @@
 import React from 'react';
-import { ContainerBG, HeaderPages, CardMeal, MealDetailModal } from '../../components';
-import { FlatList, View } from 'react-native';
+import { ContainerBG, HeaderPages, CardMeal } from '../../components';
+import { FlatList, View, TouchableOpacity } from 'react-native';
 import { ParamListBase } from '@react-navigation/native';
 import { DUMMY_MEALS } from '../../mock/MealsData';
 import { ContainerTitle, IconTitle, ContainerList } from './styled';
-import { IMeal } from '../../models';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
+import { useMealsProvider } from '../../context';
+import { useNavigationHook } from '../../hooks';
 export const MealsPage: React.FC = ({ route }: ParamListBase) => {
+
+  const {handleChangeModal} = useMealsProvider();
+  const {navigate} = useNavigationHook();
+
+
+
   //@ts-ignore
   const { categoryId, categoryName }: string = route?.params;
 
@@ -17,7 +22,6 @@ export const MealsPage: React.FC = ({ route }: ParamListBase) => {
 
   return (
     <ContainerBG>
-      <MealDetailModal />
       <HeaderPages titlePage={categoryName} />
       <ContainerList>
         <FlatList
@@ -32,7 +36,9 @@ export const MealsPage: React.FC = ({ route }: ParamListBase) => {
           showsVerticalScrollIndicator={false}
           data={mealsByCategory}
           renderItem={({ item }) => (
-            <TouchableOpacity>
+            <TouchableOpacity
+            onPress={() =>navigate('MealDetailPage', {meal: item})}
+            >
               <CardMeal meals={item} />
             </TouchableOpacity>
           )}

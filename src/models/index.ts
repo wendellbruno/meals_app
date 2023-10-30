@@ -1,13 +1,13 @@
 export enum Complexity {
-  Simple,
-  Medium,
-  Difficult,
+  Simples,
+  Média,
+  Difícil,
 }
 
 export enum Cost {
-  Cheap,
-  Fair,
-  Expensive,
+  Barato,
+  Justo,
+  Caro,
 }
 
 export interface ICategory {

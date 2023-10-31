@@ -1,6 +1,11 @@
 # meals_app
-meals application mobile with datas mock fixed.
+meals application mobile with datas mock fixed. <br />
+
 • React Native <br />
 • TypeScript <br />
 
-![WhatsApp Image 2023-10-31 at 15 35 52](https://github.com/wendellbruno/meals_app/assets/79750052/6333a522-2b69-4f12-8ff7-1df851dd98d0)
+
+
+
+https://github.com/wendellbruno/meals_app/assets/79750052/82a1aacd-0179-4124-8a20-12db74a234ac
+

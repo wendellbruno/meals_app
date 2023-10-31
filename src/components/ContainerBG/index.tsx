@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
 
 import { Container } from './styles';
-import { SafeAreaView, StatusBar } from 'react-native';
-import { DUMMY_CATEGORIES } from '../../mock/CategoryData';
+import { SafeAreaView } from 'react-native';
 import { useTheme } from 'styled-components/native';
 
 type IProps = {

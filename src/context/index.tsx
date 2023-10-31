@@ -1,40 +1,72 @@
-import React, {createContext, useContext ,ReactNode, useState} from 'react';
+import React, {createContext, useContext ,ReactNode, useState, useEffect} from 'react';
 import { IMeal } from '../models';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 type MealsContext = {
-  mealSelected: IMeal;
-  modal: boolean;
-  handleChangeModal: (meal: IMeal) => void;
+  favoritesMeals: IMeal[];
+  handleAddFavoriteMeal: (meal: IMeal) => void;
+  handleRemoveFavoriteMeal: (meal: IMeal) => void;
 }
 
-export const MealsContext = createContext<MealsContext>({} as MealsContext);
+const MealsContext = createContext<MealsContext>({} as MealsContext);
 
-  const [mealSelected, setMealSelected] = useState<IMeal>({} as IMeal);
-  const [modal, setModal] = useState<boolean>(false);
-
-
-  function handleChangeModal(meal: IMeal){
-    if(modal){
-      setModal(!modal);
-      setMealSelected({} as IMeal)
-    }else{
-      setModal(!modal);
-      setMealSelected(meal);
-    }
-  }
-
+const DBFAVORITESMEALS = '@DBFAVORITESMEALS';
 
 type Props = {
   children: ReactNode
 }
 export const MealsProvider: React.FC<Props> = ({children}: Props) => {
+  const [favoritesMeals, setFavoritesMeals] = useState<IMeal[]>([]);
+
+  async function loadFavoritesMeal(){
+    try{
+      const response = await AsyncStorage.getItem(DBFAVORITESMEALS)
+      if(response){
+        const favoritesMealList = response? JSON.parse(response) : undefined;
+        setFavoritesMeals(favoritesMealList);
+        console.log('DB JÁ EXISTE');
+      }else{
+        AsyncStorage.setItem(DBFAVORITESMEALS, JSON.stringify([]))
+        console.log('DB CRIADA');
+      }
+    }catch(erro){
+      console.log('deu erro ao carregar favoritos')
+    }
+  }
+
+  async function handleAddFavoriteMeal(meal: IMeal){
+    try{
+        setFavoritesMeals((element) => [...element, meal]);
+       // console.log(favoritesMeals)
+        await AsyncStorage.setItem(DBFAVORITESMEALS, JSON.stringify([...favoritesMeals, meal]));
+    }catch(erro){
+      console.log(erro)
+    }
+  }
+
+  async function handleRemoveFavoriteMeal(meal: IMeal){
+    try{
+      const mealList = favoritesMeals.filter(element => element.id !== meal.id)
+      await AsyncStorage.setItem(DBFAVORITESMEALS, JSON.stringify(mealList));
+      loadFavoritesMeal();
+    }catch(erro){
+      console.log(erro)
+    }
+  }
+
+
+  useEffect(() => {
+    //AsyncStorage.removeItem(DBFAVORITESMEALS);
+    loadFavoritesMeal()
+  },[])
+
   return (
     <MealsContext.Provider
     value={{
-      mealSelected,
-      modal,
-      handleChangeModal
+      favoritesMeals,
+      handleAddFavoriteMeal,
+      handleRemoveFavoriteMeal
     }}
     >
       {children}
